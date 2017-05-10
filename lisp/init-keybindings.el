@@ -23,6 +23,7 @@
 ;; bound nodejs key (nodejs-repl-send-buffer)
 (global-set-key (kbd "C-x <f10>") 'nodejs-repl-send-buffer)
 
+;; users custom key general(一般) on Ctrl-c beging
 (global-set-key (kbd "C-c p f") 'counsel-git)
 
 (provide 'init-keybindings)
