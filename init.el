@@ -18,8 +18,6 @@
 (require 'init-org)
 (require 'kotlin-mode)
 
-
-
 (setq custom-file (expand-file-name "lisp/custom.el" user-emacs-directory))
 
 (load-file custom-file)
