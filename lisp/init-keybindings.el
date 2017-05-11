@@ -29,4 +29,8 @@
 ;; auto 缩进
 (global-set-key (kbd "C-M-\\") 'indent-region-or-buff)
 
+;; hippie-expand
+(global-set-key (kbd "s-/") 'hippie-expand)
+
+
 (provide 'init-keybindings)
