@@ -26,4 +26,7 @@
 ;; users custom key general(一般) on Ctrl-c beging
 (global-set-key (kbd "C-c p f") 'counsel-git)
 
+;; auto 缩进
+(global-set-key (kbd "C-M-\\") 'indent-region-or-buff)
+
 (provide 'init-keybindings)
