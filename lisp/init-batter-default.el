@@ -45,4 +45,22 @@
 (provide 'init-batter-defaults)
 
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
+
+;; hippie-expand
+(setq hippie-expand-try-functions-list '(try-expand-dabbrev
+					 try-expand-all-abbrevs
+					 try-expand-dabbrev-from-kill
+					 try-complete-file-name
+					 try-complete-file-name-partially
+					 try-expand-dabbrev-all-buffers
+					 try-expand-list
+					 try-expand-line
+					 try-complete-lisp-symbol
+					 try-complete-lisp-symbol-partially
+					 ))
+
+
+
+(fset 'yes-or-no-p 'y-or-n-p)
+
 (provide 'init-batter-default)
