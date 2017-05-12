@@ -59,8 +59,10 @@
 					 try-complete-lisp-symbol-partially
 					 ))
 
-
-
 (fset 'yes-or-no-p 'y-or-n-p)
+
+;; auto save files for all buffer
+(setq auto-save-slient t)
+
 
 (provide 'init-batter-default)

@@ -17,7 +17,10 @@
 (require 'init-keybindings)
 (require 'init-org)
 (require 'kotlin-mode)
-
+(require 'auto-save)
+;; auto save file for all buffer
+(auto-save-enable)
+;; load custom.el file
 (setq custom-file (expand-file-name "lisp/custom.el" user-emacs-directory))
 
 (load-file custom-file)    
