@@ -1,4 +1,4 @@
-;; closed move music
+;; closed move music 
 (setq ring-bell-function 'ignore)
 
 ;; external(外部) modification(修改) after auto revert
@@ -42,7 +42,7 @@
 	(message "Indent buffer.")))))
 
 
-(provide 'init-batter-defaults)
+
 
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
@@ -61,8 +61,25 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;; dired config: let dired-mode on delete or copy directory time no longer ask y or n
+(setq dired-recursive-deletes 'always)
+(setq dired-recursive-copies 'always)
+;; dired-mode useing Ret enter directory time no more generate new buffer
+(put 'dired-find-alternate-file 'disable nil)
+
+;; open current dired-buffer (C-x C-j)
+(require 'dired-x)
+;; from a dired copy file to other a dired
+(setq dired-dwim-target t)
+
+
 ;; auto save files for all buffer
 (setq auto-save-slient t)
+
+
+;; bookmark keywords: bookmark-set input bookmark name (C-x r m)
+;; View bookmark-list bookmark-bmenu-list (C-x r l)
+;; Use bookmark-jump function, can be jump once appoint bookmark(C-x r b) input baokmark name
 
 
 (provide 'init-batter-default)

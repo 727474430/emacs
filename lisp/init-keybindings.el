@@ -32,5 +32,9 @@
 ;; hippie-expand
 (global-set-key (kbd "s-/") 'hippie-expand)
 
+;; because use require very Waste of performance(浪费性能), so use following
+;; statement play a(起到) lazy load effect(懒加载效果)
+(with-eval-after-load 'dired
+  (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
 (provide 'init-keybindings)

@@ -19,6 +19,7 @@
 			     exec-path-from-shell ;; 如果想让命令行可见需要配置
 			     popwin
 			     kotlin-mode
+			     org-alert
 			     ) "Default packages")
 
 (setq package-selected-packages wangliang/packages)

@@ -13,7 +13,7 @@
  '(kotlin-tab-width 4)
  '(package-selected-packages
    (quote
-    (exec-path-from-shell nodejs-repl js2-mode smartparens counsel swiper google-translate hungry-delete company monokai-theme))))
+    (org-pomodoro exec-path-from-shell nodejs-repl js2-mode smartparens counsel swiper google-translate hungry-delete company monokai-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
