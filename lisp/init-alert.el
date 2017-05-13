@@ -14,7 +14,7 @@
 
   (defun my-appt-display (min-to-app new-time msg)
     (notify-osx
-     (format "Appointment in %s minutes" min-to-app)    ;; passed to -title in terminal-notifier call
+     (format "Appointment in %s minutes after start task" min-to-app)    ;; passed to -title in terminal-notifier call
      (format "%s" msg)))                                ;; passed to -message in terminal-notifier call
 (setq appt-disp-window-function (function my-appt-display))
 

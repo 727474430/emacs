@@ -18,7 +18,7 @@
 (require 'init-org)
 ;; (require 'kotlin-mode)
 (require 'auto-save)
-(require 'init-alert)
+;;(require 'init-alert)
 ;; auto save file for all buffer
 (auto-save-enable)
 ;; load custom.el file

@@ -20,6 +20,8 @@
 			     popwin
 			     kotlin-mode
 			     org-alert
+			     window-number
+			     reveal-in-osx-finder ;; in the finder open current buffer file location(在当前语句是 ·所在位置· 意思)
 			     ) "Default packages")
 
 (setq package-selected-packages wangliang/packages)
@@ -65,5 +67,10 @@
 
 (require 'popwin)
 (popwin-mode t)
+
+;; add window-number
+(require 'window-number)
+(window-number-mode)
+(window-number-meta-mode)
 
 (provide 'init-packages)
