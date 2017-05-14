@@ -42,8 +42,15 @@
 	(message "Indent buffer.")))))
 
 
-
-
+;; 类似aop, in functions execute process(过程中), useing following code
+(define-advice show-paren-function (:around (fn) fix-show-paren-function)
+  "Highlight enclosing parens."
+  (cond ((looking-at-p "\\s(") (funcall fn));; 如果有(则执行  show-paren-function cond 类似于switch
+        (t (save-excursion ;; 当调用完下列函数后，光标回到起始位置
+             (ignore-errors (backward-up-list));; 如果在中间先调用(backward-up-list 函数，找到上一个括号后 调用show-paren-function
+             (funcall fn)))))
+ 
+;; show pair ()
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
 ;; hippie-expand
@@ -110,5 +117,57 @@
                   "-message" message
                   "-activate" "oeg.gnu.Emacs"))
 
+;; hidden dos in enter(^m)
+;;(defun hidden-dos-eol ()
+;;  "Do not show ^M in files containing mixed UNIX and DOS line endings."
+;;  (interactive)
+;;  (unless buffer-display-table
+;;    (setq buffer-display-table (make-display-table)))
+;;  (aset buffer-display-table ?\^M []))
+;; delete dos in enter(\r[^m]) `M-x remove-dos-eol`
+(defun remove-dos-eol ()
+  "Replace DOS eolns CR LF with Unix eolns CR"
+  (interactive)
+  (goto-char (point-min))
+  (while (search-forward "\r" nil t) (replace-match "")))
+
+
+;; 下面的代码用于配置 Occur Mode 使其默认搜索当前被选中的或者在光标下的字符串：
+(defun occur-dwim ()
+  "Call `occur' with a sane default."
+  (interactive)
+  (push (if (region-active-p)
+            (buffer-substring-no-properties
+             (region-beginning)
+             (region-end))
+          (let ((sym (thing-at-point 'symbol)))
+            (when (stringp sym)
+              (regexp-quote sym))))
+        regexp-history)
+  (call-interactively 'occur))
+(global-set-key (kbd "M-s o") 'occur-dwim)
+
+
+;; strong imenu power, use regex find all match info
+(defun js2-imenu-make-index ()
+      (interactive)
+      (save-excursion
+        ;; (setq imenu-generic-expression '((nil "describe\\(\"\\(.+\\)\"" 1)))
+        (imenu--generic-function '(("describe" "\\s-*describe\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
+                                   ("it" "\\s-*it\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
+                                   ("test" "\\s-*test\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
+                                   ("before" "\\s-*before\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
+                                   ("after" "\\s-*after\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
+                                   ("Function" "function[ \t]+\\([a-zA-Z0-9_$.]+\\)[ \t]*(" 1)
+                                   ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*(" 1)
+                                   ("Function" "^var[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*(" 1)
+                                   ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*()[ \t]*{" 1)
+                                   ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*:[ \t]*function[ \t]*(" 1)
+                                   ("Task" "[. \t]task([ \t]*['\"]\\([^'\"]+\\)" 1)))))
+(add-hook 'js2-mode-hook
+              (lambda ()
+                (setq imenu-create-index-function 'js2-imenu-make-index)))
+
+(global-set-key (kbd "M-s i") 'counsel-imenu)
 
 (provide 'init-batter-default)

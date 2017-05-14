@@ -13,10 +13,13 @@
  '(kotlin-tab-width 4)
  '(package-selected-packages
    (quote
-    (org-pomodoro exec-path-from-shell nodejs-repl js2-mode smartparens counsel swiper google-translate hungry-delete company monokai-theme))))
+    (iedit expand-region org-pomodoro exec-path-from-shell nodejs-repl js2-mode smartparens counsel swiper google-translate hungry-delete company monokai-theme)))
+ '(popwin:popup-window-position (quote right))
+ '(popwin:popup-window-width 80))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(iedit-occurrence ((t (:inherit region))))
  '(js2-external-variable ((t (:foreground "dark gray")))))
