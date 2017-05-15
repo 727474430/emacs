@@ -1,0 +1,12 @@
+* Nodejs learn 
+** DONE [-] Install Nodejs and Npm [100%]
+   DEADLINE: <2017-05-08 Mon> SCHEDULED: <2017-05-08 Mon>
+   1. [X] install nodejs
+   2. [X] config npm info
+      1. [X] config taobao 镜像
+	   npm config set registry https://registry.npm.taobao.org
+      2. [X] config proxy
+	   npm config set proxy http://172.16.10.7:80
+           npm config set http-proxy http://172.16.10.7:80
+	   if have username and password : http://username:password@server:port
+	 

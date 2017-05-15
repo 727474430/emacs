@@ -1,10 +1,15 @@
 ;; 语法高亮
-(require 'org)
+(with-eval-after-load 'org
+  ;; org-mode config
+  (setq org-agenda-files '("/Users/wangliang/.emacs.d/org"))
+  ;; org-capture-templates config
+  (setq org-capture-templates
+      '(("t" "TODO" entry (file+headline "~/.emacs.d/org/gtd.org" "工作安排")
+	 "* TODO [#B] %?\n  %i\n"
+	 :empty-lines 1)))
+  )
 (setq org-src-fontify-natively t)
 
-;; org-mode config
-(setq org-agenda-files '("/Users/wangliang/org"))
-(global-set-key (kbd "C-c a") 'org-agenda)
 
 ;; The Table, English and Chinese Alignment
 (setq fonts

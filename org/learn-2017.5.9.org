@@ -1,0 +1,56 @@
+#+TITLE: 英文学习
+
+* DONE English Learn (The word limit)
+  DEADLINE: <2017-05-09 周二 23:00> SCHEDULED: <2017-05-09 周二 19:00>
+** [-] Everyday Twenty words learning (每天二十个单词学习) [100%]
+   1. [X] Read the words (会读单词)
+      | English     | Chinese              | Extension                                 |
+      |-------------+----------------------+-------------------------------------------|
+      | Development | 开发、发展、发育     | Software Development(软件开发)            |
+      | Learn       | 学习、得知、认识到   | Learn from 向某人学习                     |
+      | Understand  | 理解、懂得、熟悉     | Bug Understand 但你必须了解               |
+      | According   | 根据、依照、照着     | According 按照、依据                      |
+      | Echo        | 回显、回音、效仿     | Echo Cancellation 回音消除                |
+      | Demand      | 要求、需求、需要     | Aggregate Demand 总需求、总需求量         |
+      | Conduct     | 进行、行为、实施     | Conduct pass 安全通行证                   |
+      | Upgrade     | 升级、上升、上坡     | Upgrade Packages 自定义升级、自定义进级   |
+      | Scheduled   | 安排、把..列入计划   | Schedule Task 执行任务、执行计划          |
+      | Deadline    | 截止日期、最后期限   | Submission(投降、服从) Deadline 截稿日期  |
+      | Enable      | 使能够、使成为可能   | Enable Nodes 授权                         |
+      | Should Be   | 应该是、应尽量       | Should not be 不应该、不该                |
+      | Specified   | 规定的、详细说明的   | Specified use 指定用途、规定用途          |
+      | Trader      | 交易者、商人、商船   | Bond Trader 证劵交易员、证劵买卖员        |
+      | Mock        | 模仿、使..失望、假装 | Mock 嘲弄、嘲笑                           |
+      | Builder     | 生成器、建造者       | Builder Pattern 生成器模式                |
+      | Optional    | 可选的、随意的       | Optional stipulation 任选规定、选择性规定 |
+      | Stipulation | 规定、约定、条款     |                                           |
+      | Refactor    | 重构                 | Color Refactor 色彩重构                   |
+      | Navigate    | 驾驶、操纵、使通过   | Navigate Icon 导航图标                        |
+
+      
+   1. [X] Write the words (会写单词)
+      | English     | Chinese                  |
+      |-------------+--------------------------|
+      | Development | 开发、发展               |
+      | Learn       | 学习、得知、认识到       |
+      | Scheduled   | 计划、安排、把..列入计划 |
+      | Deadline    | 截止日期、最好期限       |
+      | Refactor    | 重构                     |
+      | Optional    | 可选的、随意的           |
+      | Mock        | 模拟、嘲笑、假装         |
+      | Conduct     | 进行、执行               |
+      | Demand      | 需求、要求、需要         |
+      | According   | 根据、依据、依照         |
+      | Submission  | 规定、指定               |
+      | Upgrader    | 升级、上升、上坡         |
+      | Online      | 上线、在线、在线的       |
+      | Echo        | 回显、效仿               |
+      | Understand  | 了解、理解、懂得         |
+      | Enable      | 使能够                   |
+      | Should be   | 应该是、应尽量           |
+      | Specified   | 规定的、详细说明的       |
+      | Trader      | 交易者、商人、商船       |
+      | Builder     | 建造者、生成器           |
+      | Stipulation | 规定、约定、条款         |
+      | Navigate    | 驾驶、操纵、导航         |
+

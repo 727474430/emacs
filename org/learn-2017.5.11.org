@@ -1,0 +1,12 @@
+#+TITLE 英文学习
+
+* TODO English Learn (The Word limie)
+  DEADLINE: <2017-05-11 周四 23:00> SCHEDULED: <2017-05-11 周四 20:00>
+** [-] Everyday Twenty words learing [%]
+   1. [ ] Read the words
+      | English  | Chinese        | Extension                |
+      |----------+----------------+--------------------------|
+      | Along    | 独自的、孤独的 | Wating Along 独自等待    |
+      | Expected | 预期的、预料的 | Expected Return 预期回报 |
+      |          |                |                          |
+      |          |                |                          |

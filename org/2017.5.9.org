@@ -1,0 +1,16 @@
+* 日常工作
+** DONE DOCNE [-] Portal Radar Development [100%]
+   DEADLINE: <2017-05-09 周二 17:00> SCHEDULED: <2017-05-09 周二 10:00>
+   1. [X] 用户可设置 [100%]：
+      1. [X] 指标分数
+      2. [X] 指标权重
+      3. [X] 指标值域
+   2. [X] Save Users settings to database
+   3. [X] Users settings info echo
+   4. [X] Radar View Show
+** DONE [-] Api优化 [100%]
+   DEADLINE: <2017-05-09 周二 18:00> SCHEDULED: <2017-05-09 周二 17:00>
+   1. [X] understand code review target (了解重写目标)
+   2. [X] According to demand conduct update (根据要求进行升级)
+   3. [X] Test and Online (测试并上线)
+      

@@ -145,7 +145,7 @@
               (regexp-quote sym))))
         regexp-history)
   (call-interactively 'occur))
-(global-set-key (kbd "M-s o") 'occur-dwim)
+
 
 
 ;; strong imenu power, use regex find all match info
@@ -168,6 +168,6 @@
               (lambda ()
                 (setq imenu-create-index-function 'js2-imenu-make-index)))
 
-(global-set-key (kbd "M-s i") 'counsel-imenu)
+
 
 (provide 'init-batter-default)

@@ -1,0 +1,36 @@
+* Spacemacs Rocks Episcode 2(Day one)
+
+** Install Emacs
+- Mac
+- Windows
+** Go over the Emacs tutorial at least once
+- C-h t to open the tutorial
+- You need be familiar with cursor movement(C-f/C-b/C-n/C-p/C-a/C-e) and basic edting (C-k)
+- You should be familiar with M(alt) s(uper, command) S(hift) C(trl) X-x s-p S-p C-p
+- Prefix key(c-h is a prefix key) and C-g (C-x C-f)
+** Learn to active some built-in functionality (org-mode)
+- linum-mode to display line numbers (M-x linum-mode)
+- C-x C-f(find/files) to open files, C-x C-s(save file)
+- you should be always ask Emacs the rigth question
+- C-h f/C-h k/C-h v (Emacs is a self document,extensiable editor)
+- The key bindings are actually a quick way to command Emacs
+** Learn some elisp(emacs lisp)
+- use learnminyminutes website to learn emacs lisp
+- at least you know how to define variable, function 需要知道如何定义一个变量、函数等
+- You should know how to make a function callable and how to set a key binding for the function(global)
+** Start to hacking Emacs from the day one!
+- turn off tool-bar
+- trun off scroll-bar
+- show linum-mode
+- trun off splash scrren (关闭启动画面)
+- save you config
+- define a function to quickly open you config file
+** Emacs package system in the first glance
+- How to use the built-in Packages system of Emacs
+- Install company mode and active it
+- Major mode and minor mode (C-h m) quick search look minor mode dependecs
+- Happy hacking
+** Bonus(org-mode basics)
+- use * to define headings
+- C-c C-t to toggle TODO states
+- GTD (getting things done)

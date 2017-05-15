@@ -1,0 +1,9 @@
+#+TITLE: 英文学习
+
+* TODO English Learn (The word limit)				      :Learn:
+  DEADLINE: <2017-05-14 Sun 00:00> SCHEDULED: <2017-05-13 Sat 23:20>
+     1. [ ] Read thr words
+      | English | Chinese | Extension |
+      |---------+---------+-----------|
+      |         |         |           |
+	

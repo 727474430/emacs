@@ -17,11 +17,11 @@
 (require 'init-packages)
 (require 'init-ui)
 (require 'init-batter-default)
-(require 'init-keybindings)
 (require 'init-org)
 ;; (require 'kotlin-mode)
 (require 'auto-save)
 (require 'init-alert)
+(require 'init-keybindings)
 ;; auto save file for all buffer
 (auto-save-enable)
 ;; load custom.el file

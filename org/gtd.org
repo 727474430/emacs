@@ -1,0 +1,5 @@
+* 工作安排
+
+** TODO [#B] 学习 Specemacs 第二季 第六集
+   DEADLINE: <2017-05-15 Mon 00:00> SCHEDULED: <2017-05-14 Sun 23:00>
+   CLOCK: [2017-05-14 Sun 23:38]

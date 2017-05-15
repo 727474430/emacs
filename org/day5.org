@@ -1,0 +1,63 @@
+* Specemacs Rocks (Day 5)
+
+** Fix smartparen quote issus
+#+BEGIN_SRC emacs-lisp
+;; 类似aop, in functions execute process(过程中), useing following code
+(define-advice show-paren-function (:around (fn) fix-show-paren-function)
+  "Highlight enclosing parens."
+  (cond ((looking-at-p "\\s(") (funcall fn));; 如果有(则执行  show-paren-function cond 类似于switch
+        (t (save-excursion ;; 当调用完下列函数后，光标回到起始位置
+             (ignore-errors (backward-up-list));; 如果在中间先调用(backward-up-list 函数，找到上一个括号后 调用show-paren-function
+             (funcall fn)))))
+
+;; in the emacs-lisp-mode input 单引号 no-auto complate
+;; 可以 extension to other major-mode
+(sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
+#+END_SRC
+
+*** js2-refactor
+** occur and imenu
+   1. improve occur 类似于正则,找出所有匹配的单词。(M-s o)
+      可直接在新的buffer中进行修改：M-x occur-edit-mode  ->  use e into edit-mode
+      #+BEGIN_SRC emacs-lisp
+      ;; dwim = do what i mean (按我说的做)
+      (defun occur-dwim ()
+      "Call `occur' with a sane default."
+      (interactive)
+      (push (if (region-active-p)
+            (buffer-substring-no-properties
+             (region-beginning)
+             (region-end))
+          (let ((sym (thing-at-point 'symbol)))
+            (when (stringp sym)
+              (regexp-quote sym))))
+        regexp-history)
+      (call-interactively 'occur))
+      (global-set-key (kbd "M-s o") 'occur-dwim)
+      #+END_SRC
+   2. improve imenu
+      #+BEGIN_SRC emacs-lisp
+      ;; imenu: binding to counsel-imenu
+      (global-set-key (kbd "M-s i") 'counsel-imenu)
+      ;; strong imenu power, use regex find all match info
+      (defun js2-imenu-make-index ()
+          (interactive)
+          (save-excursion
+        ;; (setq imenu-generic-expression '((nil "describe\\(\"\\(.+\\)\"" 1)))
+        (imenu--generic-function '(("describe" "\\s-*describe\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
+                                   ("it" "\\s-*it\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
+                                   ("test" "\\s-*test\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
+                                   ("before" "\\s-*before\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
+                                   ("after" "\\s-*after\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
+                                   ("Function" "function[ \t]+\\([a-zA-Z0-9_$.]+\\)[ \t]*(" 1)
+                                   ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*(" 1)
+                                   ("Function" "^var[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*(" 1)
+                                   ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*()[ \t]*{" 1)
+                                   ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*:[ \t]*function[ \t]*(" 1)
+                                   ("Task" "[. \t]task([ \t]*['\"]\\([^'\"]+\\)" 1)))))
+        (add-hook 'js2-mode-hook
+              (lambda ()
+                (setq imenu-create-index-function 'js2-imenu-make-index)))
+      (global-set-key (kbd "M-s i") 'counsel-imenu)
+      #+END_SRC
+

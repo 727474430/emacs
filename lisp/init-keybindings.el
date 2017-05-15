@@ -13,13 +13,6 @@
 
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
-(require 'google-translate)
-(require 'google-translate-default-ui)
-(global-set-key "\C-ct" 'google-translate-at-point)
-(global-set-key "\C-cT" 'google-translate-query-translate)
-(global-set-key (kbd "C-c r") 'google-translate-at-point-reverse)
-(global-set-key (kbd "C-c R") 'google-translate-query-translate-reverse)
-
 ;; bound nodejs key (nodejs-repl-send-buffer)
 (global-set-key (kbd "C-x <f10>") 'nodejs-repl-send-buffer)
 
@@ -31,6 +24,31 @@
 
 ;; hippie-expand
 (global-set-key (kbd "s-/") 'hippie-expand)
+
+;; config expand-region
+(global-set-key (kbd "C-=") 'er/expand-region)
+
+;; config iedit keywords
+(global-set-key (kbd "M-s e") 'iedit-mode)
+
+;; occur-dwim
+(global-set-key (kbd "M-s o") 'occur-dwim)
+
+;; counsel-imenu, search current buffer all functions
+(global-set-key (kbd "M-s i") 'counsel-imenu)
+
+;; open the org in org-agenda
+(global-set-key (kbd "C-c a") 'org-agenda)
+
+;; r aka remember
+(global-set-key (kbd "C-c r") 'org-capture)
+
+;; M-n M-p change C-n C-p
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "M-n") nil)
+  (define-key company-active-map (kbd "M-p") nil)
+  (define-key company-active-map (kbd "C-n") #'company-select-next)
+  (define-key company-active-map (kbd "C-P") #'company-select-previous))
 
 ;; because use require very Waste of performance(浪费性能), so use following
 ;; statement play a(起到) lazy load effect(懒加载效果)

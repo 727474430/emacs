@@ -10,7 +10,6 @@
 			     company
 			     monokai-theme
 			     hungry-delete
-			     google-translate
 			     swiper
 			     counsel
 			     smartparens
@@ -26,6 +25,7 @@
 			     js2-refactor
 			     expand-region
 			     iedit
+			     org-pomodoro
 			     ) "Default packages")
 
 (setq package-selected-packages wangliang/packages)
@@ -46,7 +46,7 @@
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
-(require 'hungry-delete)
+;; hungry config
 (global-hungry-delete-mode)
 
 ;; config smartparens 符号补全 () "" ...
@@ -93,11 +93,8 @@
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
 (js2r-add-keybindings-with-prefix "C-c C-m")
 
-;; config expand-region
-(global-set-key (kbd "C-=") 'er/expand-region)
-
-;; config iedit keywords
-(global-set-key (kbd "M-s e") 'iedit-mode)
+;; org-pomodoro
+(require 'org-pomodoro)
 
 
 (provide 'init-packages)

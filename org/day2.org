@@ -1,0 +1,113 @@
+* Specemacs Rocks Episode 2 (Day two)
+
+** Fixes some annoying stuff
+1. make cursor style to bar
+
+2.disable backup file
+#+BEGIN_SRC emacs-lisp
+  (defun hello ()
+    (insert my-name))
+  (setq my-name "WangLiang")
+#+END_SRC
+use C-' to open another buffer to edit source code
+Make source code fancy in the org file
+#+BEGIN_SRC emacs-lisp
+  (require 'org)
+  (setq org-src-fontify-natively t)
+#+END_SRC
+
+3.enable recentf-mode 
+#+BEGIN_SRC emacs-lisp
+(require 'recentf)
+(recentf-mode 1)
+(setq recentf-max-menu-items 25)
+(global-set-key "\C-x\ \C-r" 'recentf-open-files)
+#+END_SRC
+
+4. bring electric-indent-mode back 开启，可自动调整换行格式，默认开启
+
+5. add delete selection mode
+#+BEGIN_SRC emacs-lisp
+  (delete-selection-mode t)
+#+END_SRC
+
+** Make Emacs more fancy
+1. Open with full screen
+#+BEGIN_SRC emacs-lisp
+  (setq initial-frame-alist (quote ((fullscreen . maximized))))
+#+END_SRC
+
+2. show match parents
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
+#+END_SRC
+It has a flaw, we will use more powerful package in the future
+
+3. Highligth current line (global-hl-line-mode)
+#+BEGIN_SRC emacs-lisp
+  (global-hl-line-mode)
+#+END_SRC
+** Improve built-in package system
+1. make package system more powerful with Melpa
+#+BEGIN_SRC emacs-lisp
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (package-initialize)
+  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+  )
+
+(require 'cl)
+
+;; add whatever packages you want here
+(defvar wangliang/packages '(
+			     company
+			     monokai-theme
+			     ) "Default packages")
+
+(defun wangliang/packages-installed-p ()
+  (loop for pkg in wangliang/packages
+	when (not (package-installed-p pkg)) do (return nil)
+	finally (return t)))
+
+(unless (wangliang/packages-installed-p)
+  (message "%s" "Refreshing package database...")
+  (package-refresh-contents)
+  (dolist (pkg wangliang/packages)
+    (when (not (package-installed-p pkg))
+      (package-install pkg))))
+#+END_SRC
+
+1. install a theme (monokai)
+2. install hungry delete mode
+3. package-list-packages (add/delete/update packages)
+4. install google-translate
+5. install all configura ivy smex
+6. install swiper
+7. use customize-group to customize the package settings
+8. install and configura smartparens mode
+9. Don't try to update the package daily, the updating process migth failed
+#+BEGIN_SRC emacs-lisp
+(require 'google-translate)
+(global-set-key "\C-ct" 'google-translate-at-point)
+(global-set-key "\C-cT" 'google-translate-query-translate)
+(global-set-key (kbd "C-c r") 'google-translate-at-point-reverse)
+(global-set-key (kbd "C-c R") 'google-translate-query-translate-reverse)
+#+END_SRC
+** Setup a JavaScript IED
+   1. Install js2-mode and start to write javascript
+   2. Install nodejs-repl to execute code inside Emacs 
+** Learn more form Emacs itself
+   1. C-h C-f(find-function) : nodejs-repl-send-buffer
+   2. C-h C-v(find-variable) : company-prefix
+   3. C-h C-k(find-function-on-key) : f2
+   4. Tell users to learn more about elisp(M-x info)
+** Org-mode(Bonus Time)
+*** Agenda files and agenda view
+    1. one gtd.org file
+       #+BEGIN_SRC emacs-lisp
+         (setq org-agenda-files '("~/org"))
+         (global-set-key (kbd "C-c a") 'org-agenda)
+       #+END_SRC
+** Excercise
+*** the difference between .emacs and .emacs.d/init.el
+*** try to confige customize-group

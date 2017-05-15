@@ -1,0 +1,72 @@
+* Specemacs Rocks ( Day Three )
+  
+** Org-Mode Futrue settings
+   1. The Table: English and Chinese Alignment Problem
+      #+BEGIN_SRC emacs-lisp
+        (setq fonts
+          (cond ((eq system-type 'darwin)     '("Monaco"    "STHeiti"))
+            ((eq system-type 'gnu/linux)  '("Menlo"     "WenQuanYi Zen Hei"))
+            ((eq system-type 'windows-nt) '("Consolas"  "Microsoft Yahei"))))
+        (set-face-attribute 'default nil :font
+                    (format "%s:pixelsize=%d" (car fonts) 14))
+        (dolist (charset '(kana han symbol cjk-misc bopomofo))
+            (set-fontset-font (frame-parameter nil 'font) charset
+            (font-spec :family (car (cdr fonts)))))
+        ;; Fix chinese font width and rescale
+        (setq face-font-rescale-alist 
+          '(("Microsoft Yahei" . 1.2) ("WenQuanYi Micro Hei Mono" . 1.2)
+              ("STHeiti". 1.2)))
+      #+END_SRC
+   2. Use Git to management your init file
+   3. help window is anoyying..
+      #+BEGIN_SRC emacs-lisp
+        ;; add popwin mode
+        ;; why this line is needed
+        (require 'popwin) ;; when require, wh(setq company-minimum-prefix-length 1)en not require
+        (popwin-mode t)
+      #+END_SRC
+   4. load-file, load-path and load
+   5. features, provide and requie, autoload
+      #+BEGIN_SRC emacs-lisp
+        ;; emacs 会自动将每个packages下的所有.el文件中带有 ;;;###autoload 注释
+        ;; 得代码块整合后,自动生成 packageName + autoloads.el文件,该文件根据
+        ;; autoloads注释的代码块,生成对应的内容,当执行 package-initialize时候
+        ;; 自动将autoloads.el下的代码加载的emacs中 进行执行
+      #+END_SRC
+   6. naming conventions
+      all of the names should have a prefix, such that the naming conflicts could be minimal
+   7. define your abbrevs
+      #+BEGIN_SRC emacs-lisp
+        (abbrev-mode t)
+          (define-abbrev-table 'global-abbrev-table '(
+					    ;; signatrue
+					    ("8wl" "wangliang")
+					    ;; emacs regex
+
+					    ))
+      #+END_SRC
+   8. how to organize your configs
+      - init-packages.el
+
+      - init-ui.el
+
+      - init-better-defaults.el
+
+      - init-keybindings.el
+
+      - custom.el
+	
+	#+BEGIN_SRC emacs-lisp
+          (setq custom-file (expand-file-name "custom.el" user-emacs-directoryE))
+          (load-file custom-file)
+	#+END_SRC
+    9. use 'counsel-git ' to find file in git managed project
+       #+BEGIN_SRC emacs-lisp
+         (global-set-key (kbd "C-c p f") 'counsel-git)
+       #+END_SRC
+
+** Major mode and minor mode in details
+   1. conventions:
+      text-mode/special-mode/prog-mode
+      naming: xxx-mode, xxx-mode-key-map, xxx-mode-hook
+   2. mode key map and mode hook
