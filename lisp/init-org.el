@@ -6,7 +6,11 @@
   (setq org-capture-templates
       '(("t" "TODO" entry (file+headline "~/.emacs.d/org/gtd.org" "工作安排")
 	 "* TODO [#B] %?\n  %i\n"
-	 :empty-lines 1)))
+	 :empty-lines 1)
+	("c" "Chrome" entry (file+headline "~/.emacs.d/org/gtd.org" "Quick notes")
+	 "* TODO [#C] %?\n %(wangliang/retrieve-chrome-current-tab-url)\n %i\n %U"
+	 :empty-lines 1)
+	))
   )
 (setq org-src-fontify-natively t)
 

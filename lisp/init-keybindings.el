@@ -43,6 +43,9 @@
 ;; r aka remember
 (global-set-key (kbd "C-c r") 'org-capture)
 
+;; config helm-ag -> C-c p(roject) s(earch)
+(global-set-key (kbd "C-c p s") 'helm-do-ag-project-root)
+
 ;; M-n M-p change C-n C-p
 (with-eval-after-load 'company
   (define-key company-active-map (kbd "M-n") nil)
