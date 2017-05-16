@@ -27,6 +27,8 @@
 			     iedit
 			     org-pomodoro
 			     helm-ag
+			     flycheck
+			     auto-yasnippet
 			     ) "Default packages")
 
 (setq package-selected-packages wangliang/packages)
@@ -97,5 +99,12 @@
 ;; org-pomodoro
 (require 'org-pomodoro)
 
+;; flycheck
+(add-hook 'js2-mode-hook 'flycheck-mode)
+(add-hook 'web-mode-hook 'flycheck-mode)
+
+;;
+(yas-reload-all)
+(add-hook 'prog-mode-hook #'yas-minor-mode)
 
 (provide 'init-packages)

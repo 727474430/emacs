@@ -1,0 +1,65 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/wangliang/.nvm/versions/node/v0.12.18/bin/node',
+1 verbose cli   '/Users/wangliang/.nvm/versions/node/v0.12.18/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'eslint' ]
+2 info using npm@2.15.11
+3 info using node@v0.12.18
+4 verbose install initial load of /Users/wangliang/.nvm/versions/node/v0.12.18/lib/package.json
+5 verbose readDependencies loading dependencies from /Users/wangliang/.nvm/versions/node/v0.12.18/lib/package.json
+6 silly cache add args [ 'eslint', null ]
+7 verbose cache add spec eslint
+8 silly cache add parsed spec { raw: 'eslint',
+8 silly cache add   scope: null,
+8 silly cache add   name: 'eslint',
+8 silly cache add   rawSpec: '',
+8 silly cache add   spec: 'latest',
+8 silly cache add   type: 'tag' }
+9 silly addNamed eslint@latest
+10 verbose addNamed "latest" is being treated as a dist-tag for eslint
+11 info addNameTag [ 'eslint', 'latest' ]
+12 silly mapToRegistry name eslint
+13 silly mapToRegistry using default registry
+14 silly mapToRegistry registry https://registry.npm.taobao.org/
+15 silly mapToRegistry data { raw: 'eslint',
+15 silly mapToRegistry   scope: null,
+15 silly mapToRegistry   name: 'eslint',
+15 silly mapToRegistry   rawSpec: '',
+15 silly mapToRegistry   spec: 'latest',
+15 silly mapToRegistry   type: 'tag' }
+16 silly mapToRegistry uri https://registry.npm.taobao.org/eslint
+17 verbose addNameTag registry:https://registry.npm.taobao.org/eslint not in flight; fetching
+18 verbose request uri https://registry.npm.taobao.org/eslint
+19 verbose request no auth needed
+20 info attempt registry request try #1 at 21:45:38
+21 verbose request id eb5db2b7a87f7c27
+22 http request GET https://registry.npm.taobao.org/eslint
+23 info retry will retry, error on last attempt: Error: tunneling socket could not be established, cause=connect ETIMEDOUT
+24 info attempt registry request try #2 at 21:47:05
+25 http request GET https://registry.npm.taobao.org/eslint
+26 info retry will retry, error on last attempt: Error: tunneling socket could not be established, cause=connect ETIMEDOUT
+27 info attempt registry request try #3 at 21:49:20
+28 http request GET https://registry.npm.taobao.org/eslint
+29 verbose stack Error: tunneling socket could not be established, cause=connect ETIMEDOUT
+29 verbose stack     at ClientRequest.onError (/Users/wangliang/.nvm/versions/node/v0.12.18/lib/node_modules/npm/node_modules/request/node_modules/tunnel-agent/index.js:176:17)
+29 verbose stack     at ClientRequest.g (events.js:199:16)
+29 verbose stack     at ClientRequest.emit (events.js:107:17)
+29 verbose stack     at Socket.socketErrorListener (_http_client.js:271:9)
+29 verbose stack     at Socket.emit (events.js:107:17)
+29 verbose stack     at net.js:459:14
+29 verbose stack     at process._tickCallback (node.js:355:11)
+30 verbose cwd /Users/wangliang/.emacs.d
+31 error Darwin 16.1.0
+32 error argv "/Users/wangliang/.nvm/versions/node/v0.12.18/bin/node" "/Users/wangliang/.nvm/versions/node/v0.12.18/bin/npm" "install" "-g" "eslint"
+33 error node v0.12.18
+34 error npm  v2.15.11
+35 error code ECONNRESET
+36 error network tunneling socket could not be established, cause=connect ETIMEDOUT
+36 error network This is most likely not a problem with npm itself
+36 error network and is related to network connectivity.
+36 error network In most cases you are behind a proxy or have bad network settings.
+36 error network
+36 error network If you are behind a proxy, please make sure that the
+36 error network 'proxy' config is set properly.  See: 'npm help config'
+37 verbose exit [ 1, true ]
