@@ -1,0 +1,15 @@
+* Specemacs Rocks (Day 7)
+** Tweak C-w to delete backward
+** Evil Turn Turn Emacs into Vim in one second 
+1. install Evil plugin
+2. tell the different between Evil and Vim
+   emacs default `C-u` Universal args
+3. Evil state = Vim mode
+evil normal state
+evil install state
+evil visual state
+evil motion state
+evil emacs state
+evil operator state
+
+4. config evil leader key

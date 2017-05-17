@@ -17,7 +17,7 @@
 (global-set-key (kbd "C-x <f10>") 'nodejs-repl-send-buffer)
 
 ;; users custom key general(一般) on Ctrl-c beging
-(global-set-key (kbd "C-c p f") 'counsel-git)
+;; (global-set-key (kbd "C-c p f") 'counsel-git)
 
 ;; auto 缩进
 (global-set-key (kbd "C-M-\\") 'indent-region-or-buff)
@@ -44,7 +44,7 @@
 (global-set-key (kbd "C-c r") 'org-capture)
 
 ;; config helm-ag -> C-c p(roject) s(earch)
-(global-set-key (kbd "C-c p s") 'helm-do-ag-project-root)
+;; (global-set-key (kbd "C-c p s") 'helm-do-ag-project-root)
 
 ;; M-n M-p change C-n C-p
 (with-eval-after-load 'company
@@ -57,5 +57,8 @@
 ;; statement play a(起到) lazy load effect(懒加载效果)
 (with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
+
+
+(global-set-key (kbd "C-w") 'backward-kill-word)
 
 (provide 'init-keybindings)

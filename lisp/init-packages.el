@@ -1,7 +1,11 @@
-;; if emacs version >= 24
+;; if emacs version >=
 (when (>= emacs-major-version 24)
   (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
 			   ("melpa" . "http://elpa.emacs-china.org/melpa/"))))
+
+;;(when (>= emacs-major-version 24)
+;;  (setq package-archives '("popkit" . "http://elpa.popkit.org/packages"))
+;;  )
 
 (require 'cl)
 
@@ -19,7 +23,6 @@
 			     popwin
 			     kotlin-mode
 			     org-alert
-			     window-number
 			     reveal-in-osx-finder ;; in the finder open current buffer file location(在当前语句是 ·所在位置· 意思)
 			     web-mode
 			     js2-refactor
@@ -29,6 +32,11 @@
 			     helm-ag
 			     flycheck
 			     auto-yasnippet
+			     evil
+			     evil-leader
+			     window-numbering
+			     powerline
+			     evil-nerd-commenter
 			     ) "Default packages")
 
 (setq package-selected-packages wangliang/packages)
@@ -79,10 +87,6 @@
 (require 'popwin)
 (popwin-mode t)
 
-;; add window-number
-(require 'window-number)
-(window-number-mode)
-(window-number-meta-mode)
 
 ;; config for web mode, default modify 2 缩进
 (defun my-web-mode-indent-setup ()
@@ -106,5 +110,40 @@
 ;;
 (yas-reload-all)
 (add-hook 'prog-mode-hook #'yas-minor-mode)
+
+;; open evil
+(evil-mode 1)
+(setcdr evil-insert-state-map nil)
+;; default normal-state
+(define-key evil-insert-state-map [escape] 'evil-normal-state)
+;; evil-leader config
+(global-evil-leader-mode)
+(evil-leader/set-key
+ "ff" 'find-file
+ "xb" 'switch-to-buffer
+ "fr" 'recentf-open-files
+ "bk" 'kill-buffer
+ "pf" 'counsel-git
+ "ps" 'helm-do-ag-project-root
+ "1" 'select-window-1
+ "2" 'select-window-2
+ "3" 'select-window-3
+ "4" 'select-window-4
+ "w/" 'split-window-right
+ "w-" 'split-window-below
+ ":" 'counsel-M-x
+ "M-RET" 'toggle-frame-maximized
+ "x1" 'delete-other-windows)
+(window-numbering-mode 1)
+;; window bottom show info
+(require 'powerline)
+(powerline-default-theme)
+;; evil-surround    `vim C-S '\"\(...   cs`
+(require 'evil-surround)
+(global-evil-surround-mode 1)
+;; evil-nerd-commenter
+(evilnc-default-hotkeys)
+(define-key evil-normal-state-map (kbd "M-/") 'evilnc-comment-or-uncomment-lines)
+(define-key evil-visual-state-map (kbd "M-/") 'evilnc-comment-or-uncomment-lines)
 
 (provide 'init-packages)

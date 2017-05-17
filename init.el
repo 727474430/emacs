@@ -1,4 +1,11 @@
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
 (package-initialize)
+
+;;(ackage-initialize)
 
 ;;(require 'org-install)
 ;;(require 'ob-tangle)
@@ -8,7 +15,6 @@
 (defun open-my-init-file()
   (interactive)
   (find-file "~/.emacs.d/init.el"))
-
 
 ;; add more personal func
 ;; new init-func.el
@@ -30,6 +36,7 @@
 ;; keywords useing method: http://xuzhengchao.com/emacs/emacs-ide.html
 ;; (add-hook 'clojure-mode-hook 'paredit-mode)
 
+(setq org-src-fontify-natively t)
 
 (load-file custom-file)
 
