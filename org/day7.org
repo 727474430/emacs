@@ -2,8 +2,10 @@
 ** Tweak C-w to delete backward
 ** Evil Turn Turn Emacs into Vim in one second 
 1. install Evil plugin
+
 2. tell the different between Evil and Vim
    emacs default `C-u` Universal args
+
 3. Evil state = Vim mode
 evil normal state
 evil install state
@@ -13,3 +15,25 @@ evil emacs state
 evil operator state
 
 4. config evil leader key
+   
+5. press `C-z` to toggle between Normal and Emacs state
+
+6. Made some modes to use emacs-state
+#+BEGIN_SRC emacs-lisp
+(dolist (mode '(ag-mode
+flycheck-error-list-mode
+git-rebase-mode))
+(add-to-list 'evil-emacs-state-modes mode))
+#+END_SRC
+
+** References
+
+- https://www.emacswiki.org/emacs/Evil
+
+- https://juanjoalvarez.net/es/detail/2014/sep/19/vim-emacsevil-chaotic-migration-guide/
+
+- https://nathantypanski.com/blog/2014-08-03-a-vim-like-emacs-config.html
+
+- https://blog.aaronbieber.com/2015/05/24/from-vim-to-emacs-in-fourteen-days.html
+
+- https://blog.jakubarnold.cz/2014/06/23/evil-mode-how-to-switch-from-vim-to-emacs.html

@@ -15,9 +15,11 @@
  '(kotlin-tab-width 4)
  '(package-selected-packages
    (quote
-    (evil-nerd-commenter evil-surround powerline window-numbering evil-leader org2blog htmlize metaweblog xml-rpc iedit expand-region org-pomodoro exec-path-from-shell nodejs-repl js2-mode smartparens counsel swiper google-translate hungry-delete company monokai-theme)))
+    (which-key evil-nerd-commenter evil-surround powerline window-numbering evil-leader org2blog htmlize metaweblog xml-rpc iedit expand-region org-pomodoro exec-path-from-shell nodejs-repl js2-mode smartparens counsel swiper google-translate hungry-delete company monokai-theme)))
  '(popwin:popup-window-position (quote right))
  '(popwin:popup-window-width 80)
+ '(which-key-frame-max-height 60)
+ '(which-key-idle-delay 0.08)
  '(window-numbering-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

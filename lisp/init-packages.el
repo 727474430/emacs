@@ -1,4 +1,4 @@
-;; if emacs version >=
+;; if emacs version >=24
 (when (>= emacs-major-version 24)
   (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
 			   ("melpa" . "http://elpa.emacs-china.org/melpa/"))))
@@ -35,8 +35,8 @@
 			     evil
 			     evil-leader
 			     window-numbering
-			     powerline
 			     evil-nerd-commenter
+			     which-key
 			     ) "Default packages")
 
 (setq package-selected-packages wangliang/packages)
@@ -133,11 +133,10 @@
  "w-" 'split-window-below
  ":" 'counsel-M-x
  "M-RET" 'toggle-frame-maximized
- "x1" 'delete-other-windows)
+ "x1" 'delete-other-windows
+ "qq" 'save-buffers-kill-terminal)
 (window-numbering-mode 1)
-;; window bottom show info
-(require 'powerline)
-(powerline-default-theme)
+
 ;; evil-surround    `vim C-S '\"\(...   cs`
 (require 'evil-surround)
 (global-evil-surround-mode 1)
@@ -145,5 +144,21 @@
 (evilnc-default-hotkeys)
 (define-key evil-normal-state-map (kbd "M-/") 'evilnc-comment-or-uncomment-lines)
 (define-key evil-visual-state-map (kbd "M-/") 'evilnc-comment-or-uncomment-lines)
+
+;; occur-mode evil-leader config
+(add-hook 'occur-mode-hook
+	  (lambda()
+	    (evil-add-hjkl-bindings occur-mode-map 'emacs
+	      (kbd "/") 'evil-search-forward
+	      (kbd "n") 'evil-search-next
+	      (kbd "N") 'evil-search-previous
+	      (kbd "C-d") 'evil-scroll-down
+	      (kbd "C-u") 'evil-scroll-up
+	      )))
+
+;; which-key start
+(which-key-mode 1)
+(which-key-setup-side-window-bottom)
+
 
 (provide 'init-packages)

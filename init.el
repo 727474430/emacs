@@ -7,7 +7,7 @@
 
 ;;(ackage-initialize)
 
-;;(require 'org-install)
+;;(nequire 'org-install)
 ;;(require 'ob-tangle)
 ;;(org-babel-load-file (expand-file-name "wangliang.org" user-emacs-directory))
 (add-to-list 'load-path "~/.emacs.d/lisp/")
